@@ -4,11 +4,11 @@ import LandingPage from "./screens/LandingPage";
 
 function App() {
   return (
-    <>
+    <div className="relative">
       <Header />
       <LandingPage />
       <Footer />
-    </>
+    </div>
   );
 }
 export default App;

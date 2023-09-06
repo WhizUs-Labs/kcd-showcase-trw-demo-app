@@ -19,8 +19,7 @@ containerize:
     - docker:24.0.5-dind-rootless
   variables:
     DOCKER_TLS_CERTDIR: "/certs"
-  before_script:
-    - docker login -u $REGISTRY_USER -p $REGISTRY_PASS
   script:
+    - docker login -u $REGISTRY_USER -p $REGISTRY_PASS
     - docker build -t $IMAGE_NAME:$IMAGE_TAG .
     - docker push $IMAGE_NAME:$IMAGE_TAG <repository>

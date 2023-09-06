@@ -20,6 +20,6 @@ containerize:
   variables:
     DOCKER_TLS_CERTDIR: "/certs"
   script:
-    - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
+    - docker login $CI_REGISTRY -u $CI_DEPLOY_USER -p $CI_DEPLOY_PASSWORD
     - docker build -t $CI_REGISTRY/$IMAGE_NAME:$IMAGE_TAG .
     - docker push $CI_REGISTRY/$IMAGE_NAME:$IMAGE_TAG

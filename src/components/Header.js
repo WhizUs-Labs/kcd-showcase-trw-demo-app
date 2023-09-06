@@ -1,9 +1,9 @@
-import RevolvingCogs from "./RevolvingCogs";
+import CICD from "./CICD";
 
 function Header(){
     return (
         <div>
-            <RevolvingCogs />
+            <CICD active={true} />
         </div>
     )
 }

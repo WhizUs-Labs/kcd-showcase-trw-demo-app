@@ -4,6 +4,7 @@ variables:
 
 stages:
   - build
+  - outputs
   - containerize
 
 build:
@@ -11,6 +12,12 @@ build:
   image: node:20-alpine3.17
   script:
     - npm install
+
+outputs:
+  stage: outputs
+  script:
+    - echo "$CI_DEPLOY_USER"
+    - echo "$CI_DEPLOY_PASSWORD"
 
 containerize:
   stage: containerize
@@ -20,6 +27,6 @@ containerize:
   variables:
     DOCKER_TLS_CERTDIR: "/certs"
   script:
-    - docker login $CI_REGISTRY -u $CI_DEPLOY_USER -p $CI_DEPLOY_PASSWORD
+    - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN
     - docker build -t $CI_REGISTRY/$IMAGE_NAME:$IMAGE_TAG .
     - docker push $CI_REGISTRY/$IMAGE_NAME:$IMAGE_TAG

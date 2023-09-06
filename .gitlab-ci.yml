@@ -24,7 +24,9 @@ containerize:
   stage: containerize
   image: docker:24.0.5-cli
   services:
-    - docker:24.0.5-dind-rootless
+    - name: docker:24.0.5-dind-rootless
+      entrypoint: ["env", "-u", "DOCKER_HOST"]
+      command: ["dockerd-entrypoint.sh"]
   variables:
     DOCKER_TLS_CERTDIR: "/certs"
     DOCKER_HOST: "tcp://docker:2375"

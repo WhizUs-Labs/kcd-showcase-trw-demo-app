@@ -16,7 +16,7 @@ containerize:
   stage: containerize
   image: docker:24.0.5
   services:
-    - docker:24.0.5-dind
+    - docker:24.0.5-dind-rootless
   variables:
     DOCKER_TLS_CERTDIR: "/certs"
   script:

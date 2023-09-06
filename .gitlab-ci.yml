@@ -1,0 +1,24 @@
+variables:
+  IMAGE_NAME: kcd-demo
+  IMAGE_TAG: $CI_COMMIT_TAG
+
+stages:
+  - build
+  - containerize
+
+build:
+  image: node:20-alpine3.17
+  script:
+    - npm install
+
+containerize:
+  image: docker:24.0.5-cli
+  services:
+    - docker:24.0.5-dind-rootless
+  variables:
+    DOCKER_TLS_CERTDIR: "/certs"
+  before_script:
+    - docker login -u $REGISTRY_USER -p $REGISTRY_PASS
+  script:
+    - docker build -t $IMAGE_NAME:$IMAGE_TAG .
+    - docker push $IMAGE_NAME:$IMAGE_TAG <repository>

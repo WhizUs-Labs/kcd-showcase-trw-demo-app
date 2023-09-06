@@ -27,6 +27,7 @@ containerize:
     - docker:24.0.5-dind-rootless
   variables:
     DOCKER_TLS_CERTDIR: "/certs"
+    DOCKER_HOST: "tcp://docker:2375"
   script:
     - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
     - docker build -t $IMAGE_NAME:$IMAGE_TAG .

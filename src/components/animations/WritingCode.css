@@ -5,6 +5,7 @@
     animation-timing-function: linear;
     animation-iteration-count: 1;
     animation-fill-mode: both;
+
 }
 
 .write2 {
@@ -14,6 +15,7 @@
     animation-timing-function: linear;
     animation-iteration-count: 1;
     animation-fill-mode: both;
+
 }
 
 .write3 {
@@ -23,16 +25,20 @@
     animation-timing-function: linear;
     animation-iteration-count: 1;
     animation-fill-mode: both;
+
 }
 
 @Keyframes codewriter-animation {
-    0%, 100% {
+    0% {
         width: 0;
+        opacity: 0;
     }
     50% {
         width: 2rem;
+        opacity: 1;
     }
     100% {
         width: 4rem;
+        opacity: 1;
     }
 }

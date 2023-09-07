@@ -1,0 +1,52 @@
+
+.spin {
+    animation-name: spin-animation;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+
+.reverse-spin {
+    animation-name: reverse-spin-animation;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+
+@Keyframes spin-animation {
+    0%, 100% {
+        transform: rotate(22deg);
+    }
+    25% {
+        transform: rotate(112deg);
+    }
+    50% {
+        transform: rotate(202deg)
+    }
+    75% {
+        transform: rotate(297deg)
+    }
+    100% {
+        transform: rotate(382deg);
+    }
+}
+
+@Keyframes reverse-spin-animation {
+    0%, 100% {
+        transform: rotate(360deg);
+    }
+    25% {
+        transform: rotate(270deg);
+    }
+    50% {
+        transform: rotate(180deg)
+    }
+    75% {
+        transform: rotate(90deg)
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}

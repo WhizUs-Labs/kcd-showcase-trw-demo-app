@@ -4,7 +4,7 @@ import GITOPS from "./GITOPS";
 
 function Header(){
     return (
-        <div className="shadow-xl flex flex-row">
+        <div className="shadow-xl flex flex-row w-screen" style={{height: '20vh'}}>
             <CICD active={true} />
             <IAC />
             <GITOPS />

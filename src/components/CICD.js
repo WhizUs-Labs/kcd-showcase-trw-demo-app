@@ -8,10 +8,11 @@ import { PiArrowBendRightUpBold,PiArrowBendUpRightBold } from 'react-icons/pi';
 
 
 function CICD({ active, className }){
-    const CICD_Classes = classNames('relative h-60 w-1/3 border border-black rounded',className);
+    const CICD_Classes = classNames('overflow-hidden flex flex-col justify-center h-full w-1/3 border border-black rounded',className);
     const [writeCode,setWriteCode] = useState(false);
     const [revolveCogs,setRevolveCogs] = useState(false);
     const [blinkApp,setBlinkApp] = useState(false);
+
     const CICD_animation = useCallback(async () => {
         console.log("starting animation")
         setWriteCode(true);
@@ -38,12 +39,16 @@ function CICD({ active, className }){
 
     return (
         <div className={CICD_Classes} >
-            <div className="relative py-4 block text-center">CI/CD</div>
-                <WritingCode active={writeCode} className="absolute bottom-0 left-0 scale-75" />
-                <PiArrowBendRightUpBold className="absolute bottom-24 left-28 rotate-45 scale-150" />
-                <RevolvingCogs active={revolveCogs} className="absolute bottom-28 left-32 rotate-45 scale-75" />
-                <PiArrowBendUpRightBold className="absolute bottom-36 left-56 rotate-[45deg] scale-150" />
-                <NewAPP active={blinkApp} className="absolute bottom-0 left-60" />
+            <div className="py-4 w-full text-center">CI/CD</div>
+            <div className="flex justify-content grow">
+                <div className="relative inset-x-1/4">
+                    <WritingCode active={writeCode} color='border-[#00C6CF] bg-[#00C6CF]' className="absolute bottom-0 left-0 scale-75" />
+                    <PiArrowBendRightUpBold className="absolute bottom-24 left-28 rotate-45 scale-150" />
+                    <RevolvingCogs active={revolveCogs} className="absolute bottom-28 left-32 rotate-45 scale-75" />
+                    <PiArrowBendUpRightBold className="absolute bottom-36 left-56 rotate-[45deg] scale-150" />
+                    <NewAPP active={blinkApp} className="absolute bottom-0 left-60" />
+                </div>
+            </div>
         </div>
     )
 }

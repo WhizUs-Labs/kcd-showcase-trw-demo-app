@@ -9,7 +9,7 @@ import { PiArrowBendRightUpBold,PiArrowBendUpRightBold } from 'react-icons/pi';
 
 function GITOPS({ active, className }){
     
-    const GITOPS_Classes = classNames('relative h-60 w-1/3 border border-black rounded',className);
+    const GITOPS_Classes = classNames('h-full w-1/3 border border-black rounded',className);
     const [writeCode,setWriteCode] = useState(false);
     const [revolveCogs,setRevolveCogs] = useState(false);
     /*
@@ -39,7 +39,6 @@ function GITOPS({ active, className }){
     return (
         <div className={GITOPS_Classes} >
             <div className="relative w-full py-4 block text-center">GitOps</div>
-
         </div>
     )
 }

@@ -3,9 +3,9 @@ import './LandingPage.css';
 
 function LandingPage(){
     return (
-        <div className="my-40 w-2/3 mx-auto" >
+        <div className="flex justify-center pt-8 w-screen" style={{height: '80vh'}} >
             <Whzlogo active={true} />
-            <h1 className="text-6xl">Hello {`${process.env.REACT_APP_TEST}`}</h1>
+            {/*<h1 className="text-6xl">Hello {`${process.env.REACT_APP_TEST}`}</h1>*/}
         </div>
     )
 }

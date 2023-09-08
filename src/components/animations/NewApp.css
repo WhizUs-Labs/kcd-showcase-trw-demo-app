@@ -27,3 +27,19 @@
       opacity: 0;
     }
  }
+
+
+/*
+@-webkit-keyframes changeBg
+{
+   0%   {background-image: url("images/img1.jpg");}
+   25%  {background-image: url("images/img2.jpg");}
+   50%  {background-image: url("images/img3.jpg");}
+   100% {background-image: url("images/img4.jpg");}
+}
+
+body
+{
+   -webkit-animation: changeBg 5s infinite;
+}
+*/

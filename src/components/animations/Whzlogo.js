@@ -8,7 +8,7 @@ import classNames from "classnames";
 function Whzlogo({ active,display, className }){
     const logo = useRef();
     const text = useRef();
-    let containerclass = classNames('w-100 h-80',className)
+    let containerclass = classNames('',className)
     let classes1 = 'static flyin';
     let classes2 = 'static flyin2';
     if (active === true){

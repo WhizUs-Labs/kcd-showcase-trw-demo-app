@@ -9,7 +9,7 @@ import { PiArrowBendRightUpBold,PiArrowBendUpRightBold } from 'react-icons/pi';
 
 function IAC({ active, className }){
     
-    const IAC_Classes = classNames('relative h-60 w-1/3 border border-black rounded',className);
+    const IAC_Classes = classNames('h-full w-1/3 border border-black rounded',className);
     const [writeCode,setWriteCode] = useState(false);
     const [revolveCogs,setRevolveCogs] = useState(false);
     /*

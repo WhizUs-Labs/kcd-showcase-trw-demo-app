@@ -19,6 +19,22 @@ stages:
   - cleanup
 
 # Terraform fmt/validate and plan
+get-kubeconfig:
+  stage: validate
+  image: ubuntu:latest
+  variables:
+    EXOSCALE_API_KEY: ${TF_VAR_EXOSCALE_API_KEY}
+    EXOSCALE_API_SECRET: ${TF_VAR_EXOSCALE_API_SECRET}
+  script:
+    - curl -fSL https://github.com/exoscale/cli/releases/download/v1.69.0/exoscale-cli_1.69.0_linux_amd64.deb -O
+    - sudo dpkg -i exoscale-cli_1.69.0_linux_amd64.deb
+    - mkdir -p ~/.kube/config.d/kcd-demo/
+    - exo compute sks kubeconfig kcd-demo-sks kcd-demo-sks  -g "system:masters" -z "at-vie-2" > ~/.kube/config.d/kcd-demo/kcd-demo.config.yaml
+  artifacts:
+    paths:
+      - ~/.kube/config.d/kcd-demo/kcd-demo.config.yaml
+  allow_failure: true
+
 fmt:
   extends: .terraform:fmt
   needs: []
@@ -27,8 +43,11 @@ validate:
   extends: .terraform:validate
   needs: []
 
-build-terraform:
+
+terraform-plan:
   extends: .terraform:build
+  dependencies:
+    - get-kubeconfig
   environment:
     name: $TF_STATE_NAME
     action: prepare
@@ -52,10 +71,11 @@ containerize:
     - docker push $CI_REGISTRY/$IMAGE_NAME:$IMAGE_TAG
 
 #terraform apply
-apply:
+terraform-apply:
   extends: .terraform:deploy
   dependencies:
     - build-terraform
+    - get-kubeconfig
   environment:
     name: $TF_STATE_NAME
     action: start

@@ -1,4 +1,3 @@
-
 output "kubeconfigfile" {
-  value = module.exoscale_sks.configpath
+  value = var.kubeconfig_path
 } 

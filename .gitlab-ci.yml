@@ -23,8 +23,8 @@ get-kubeconfig:
   stage: validate
   image: ubuntu:latest
   variables:
-    EXOSCALE_API_KEY: ${TF_VAR_EXOSCALE_API_KEY}
-    EXOSCALE_API_SECRET: ${TF_VAR_EXOSCALE_API_SECRET}
+    EXOSCALE_API_KEY: ${TF_VAR_EXOSCALE_KEY}
+    EXOSCALE_API_SECRET: ${TF_VAR_EXOSCALE_SECRET}
   script:
     - apt update && apt install curl -y
     - curl -fSL https://github.com/exoscale/cli/releases/download/v1.69.0/exoscale-cli_1.69.0_linux_amd64.deb -O

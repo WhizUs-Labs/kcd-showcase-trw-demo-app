@@ -15,6 +15,7 @@
 .terraform*
 terraform.tfstate*
 *.tfvars
+.kube
 
 # misc
 .DS_Store

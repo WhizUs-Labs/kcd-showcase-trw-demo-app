@@ -29,11 +29,11 @@ get-kubeconfig:
     - apt update && apt install curl -y
     - curl -fSL https://github.com/exoscale/cli/releases/download/v1.69.0/exoscale-cli_1.69.0_linux_amd64.deb -O
     - dpkg -i exoscale-cli_1.69.0_linux_amd64.deb
-    - mkdir -p ~/.kube/config.d/kcd-demo/
-    - exo compute sks kubeconfig kcd-demo-sks kcd-demo-sks  -g "system:masters" -z "at-vie-2" > ~/.kube/config.d/kcd-demo/kcd-demo.config.yaml
+    - mkdir -p IaC/.kube/
+    - exo compute sks kubeconfig kcd-demo-sks kcd-demo-sks  -g "system:masters" -z "at-vie-2" > IaC/.kube/kcd-demo.config.yaml
   artifacts:
     paths:
-      - /root/.kube/config.d/kcd-demo/kcd-demo.config.yaml
+      - IaC/.kube/kcd-demo.config.yaml
   allow_failure: true
 
 fmt:

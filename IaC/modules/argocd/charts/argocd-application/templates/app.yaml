@@ -15,7 +15,7 @@ spec:
       values: {{ toYaml .Values.source.helm.values | toString | indent 6 }}
   destination:
     server: {{ .Values.destination.server }}
-    namespace: {{ .Values.namespace }}
+    namespace: {{ .Values.destination.namespace }}
   syncPolicy:
     automated:
       allowEmpty: false

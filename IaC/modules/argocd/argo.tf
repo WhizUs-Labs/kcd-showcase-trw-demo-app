@@ -11,17 +11,22 @@ resource "helm_release" "argo_cd" {
   wait             = true
 }
 
-resource "helm_release" "argo_demo_repo" {
+resource "helm_release" "argo_repo" {
   count            = length(var.argo_envs)
   chart            = "${path.module}/charts/argocd-application"
   name             = var.argo_envs[count.index].name
   version          = "1.0.0"
-  namespace        = var.argo_config.namespace
+  namespace        = var.argo_envs[count.index].namespace
   create_namespace = true
 
   set {
     name  = "namespace"
-    value = "argocd"
+    value = var.argo_config.namespace
+  }
+
+  set {
+    name  = "destination.namespace"
+    value = var.argo_envs[count.index].namespace
   }
 
   set {

@@ -20,6 +20,7 @@ variable "argo_envs" {
     path           = string
     repoUrl        = string
     targetRevision = string
+    namespace      = string
   }))
   default = []
 }

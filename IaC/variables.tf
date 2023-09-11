@@ -59,5 +59,5 @@ variable "nodepools" {
 variable "kubeconfig_path" {
   description = "Path to the kubeconfig file"
   type        = string
-  default     = "~/.kube/config.d/kcd-demo/kcd-demo.config.yaml"
+  default     = ".kube/kcd-demo.config.yaml"
 }

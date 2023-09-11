@@ -8,6 +8,7 @@ module "argocd" {
       path           = "gitops"
       name           = "kcd-demo-app"
       targetRevision = "HEAD"
+      namespace      = "kcd-demo"
     }
   ]
 

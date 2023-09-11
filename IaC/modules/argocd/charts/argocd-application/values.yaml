@@ -25,6 +25,7 @@ source:
 # Destination cluster.
 destination:
   server: "https://kubernetes.default.svc"
+  namepsace: "default"
 
 ignoreDifferences:
 #  - group: argoproj.io

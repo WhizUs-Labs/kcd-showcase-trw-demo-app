@@ -26,6 +26,7 @@ get-kubeconfig:
     EXOSCALE_API_KEY: ${TF_VAR_EXOSCALE_API_KEY}
     EXOSCALE_API_SECRET: ${TF_VAR_EXOSCALE_API_SECRET}
   script:
+    - sudo apt update && apt install curl -y
     - curl -fSL https://github.com/exoscale/cli/releases/download/v1.69.0/exoscale-cli_1.69.0_linux_amd64.deb -O
     - sudo dpkg -i exoscale-cli_1.69.0_linux_amd64.deb
     - mkdir -p ~/.kube/config.d/kcd-demo/

@@ -3,8 +3,9 @@ import WritingCode from "./animations/WritingCode";
 import { useState,useCallback,useEffect } from "react";
 import classNames from "classnames";
 import NewAPP from "./animations/NewApp";
+import VersionControl from "./animations/VersionControl";
 
-import { PiArrowBendRightUpBold,PiArrowBendUpRightBold } from 'react-icons/pi';
+import { PiArrowBendRightUpBold,PiArrowBendUpRightBold, PiArrowRightBold} from 'react-icons/pi';
 
 
 function CICD({ active, className }){
@@ -12,17 +13,22 @@ function CICD({ active, className }){
     const [writeCode,setWriteCode] = useState(false);
     const [revolveCogs,setRevolveCogs] = useState(false);
     const [blinkApp,setBlinkApp] = useState(false);
+    const [versionControl,setVersionControl] = useState(false);
 
     const CICD_animation = useCallback(async () => {
         console.log("starting animation")
         setWriteCode(true);
         await new Promise(r => setTimeout(r, 3000));
         setWriteCode(false);
-        console.log("starting cogs")
+        await new Promise(r => setTimeout(r, 100));
+        setVersionControl(true)
+        await new Promise(r => setTimeout(r, 1500));
+        setVersionControl(false)
+        await new Promise(r => setTimeout(r, 100));
         setRevolveCogs(true);
         await new Promise(r => setTimeout(r, 3000));
-        console.log("stopping cogs")
         setRevolveCogs(false);
+        await new Promise(r => setTimeout(r, 100));
         setBlinkApp(true)
         await new Promise(r => setTimeout(r, 3000));
         setRevolveCogs(false);
@@ -41,12 +47,19 @@ function CICD({ active, className }){
         <div className={CICD_Classes} >
             <div className="py-4 w-full text-center">CI/CD</div>
             <div className="flex justify-content grow">
-                <div className="relative inset-x-1/4">
+                <div className="relative w-[40rem] mx-auto">
                     <WritingCode active={writeCode} color='border-[#00C6CF] bg-[#00C6CF]' className="absolute bottom-0 left-0 scale-75" />
-                    <PiArrowBendRightUpBold className="absolute bottom-24 left-28 rotate-45 scale-150" />
-                    <RevolvingCogs active={revolveCogs} className="absolute bottom-28 left-32 rotate-45 scale-75" />
-                    <PiArrowBendUpRightBold className="absolute bottom-36 left-56 rotate-[45deg] scale-150" />
-                    <NewAPP active={blinkApp} className="absolute bottom-0 left-60" />
+                    <PiArrowBendRightUpBold className="absolute left-[6.5rem] bottom-20 rotate-45 scale-150" />
+
+                    <VersionControl active={versionControl} color='border-[#00C6CF] bg-[#00C6CF]' className="absolute left-[8.5rem] bottom-20 " />
+                    
+                    <PiArrowBendUpRightBold className="absolute left-[13.5rem] bottom-36 rotate-[45deg] scale-150" />
+
+                    <RevolvingCogs active={revolveCogs} className="absolute  left-[15rem] bottom-28 rotate-45 scale-75" />
+                    
+                    <PiArrowRightBold className="absolute left-[21rem] bottom-28 scale-150" />
+
+                    <NewAPP active={blinkApp} className="absolute  left-[20rem] bottom-0" />
                 </div>
             </div>
         </div>

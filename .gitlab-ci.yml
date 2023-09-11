@@ -33,7 +33,7 @@ get-kubeconfig:
     - exo compute sks kubeconfig kcd-demo-sks kcd-demo-sks  -g "system:masters" -z "at-vie-2" > ~/.kube/config.d/kcd-demo/kcd-demo.config.yaml
   artifacts:
     paths:
-      - ~/.kube/config.d/kcd-demo/kcd-demo.config.yaml
+      - /root/.kube/config.d/kcd-demo/kcd-demo.config.yaml
   allow_failure: true
 
 fmt:

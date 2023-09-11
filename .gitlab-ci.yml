@@ -13,8 +13,8 @@ stages:
   - validate
   - test
   - build
-  - deploy
   - containerize
+  - deploy
   - deploy-to-sks
   - cleanup
 

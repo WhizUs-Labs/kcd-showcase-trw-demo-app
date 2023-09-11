@@ -1,10 +1,37 @@
+include:
+  - template: Terraform/Base.gitlab-ci.yml  # https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Terraform/Base.gitlab-ci.yml
+  - template: Jobs/SAST-IaC.gitlab-ci.yml   # https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Jobs/SAST-IaC.gitlab-ci.yml
+
+
 variables:
+  TF_ROOT: ${CI_PROJECT_DIR}/IaC  # The relative path to the root directory of the Terraform project
+  TF_STATE_NAME: default      # The name of the state file used by the GitLab Managed Terraform state backend
   IMAGE_NAME: whizus/poc/kcd-platform-prototype/kcd_demo_app
   IMAGE_TAG: $CI_COMMIT_SHORT_SHA
 
 stages:
+  - validate
+  - test
   - build
   - containerize
+  - deploy
+  - deploy-to-sks
+  - cleanup
+
+# Terraform fmt/validate and plan
+fmt:
+  extends: .terraform:fmt
+  needs: []
+
+validate:
+  extends: .terraform:validate
+  needs: []
+
+build-terraform:
+  extends: .terraform:build
+  environment:
+    name: $TF_STATE_NAME
+    action: prepare
 
 build:
   stage: build
@@ -23,3 +50,13 @@ containerize:
     - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN
     - docker build -t $CI_REGISTRY/$IMAGE_NAME:$IMAGE_TAG .
     - docker push $CI_REGISTRY/$IMAGE_NAME:$IMAGE_TAG
+
+#terraform apply
+apply:
+  extends: .terraform:deploy
+  dependencies:
+    - build
+  environment:
+    name: $TF_STATE_NAME
+    action: start
+  allow_failure: true

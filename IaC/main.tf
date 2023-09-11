@@ -17,7 +17,7 @@ module "argocd" {
   argo_envs = [
     {
       repoUrl        = "https://gitlab.com/whizus/poc/kcd-platform-prototype/kcd_demo_app"
-      path           = "/"
+      path           = "/devops"
       name           = "kcd-demo-app"
       targetRevision = "HEAD"
     }

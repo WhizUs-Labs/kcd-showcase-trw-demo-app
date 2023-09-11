@@ -55,7 +55,7 @@ containerize:
 apply:
   extends: .terraform:deploy
   dependencies:
-    - build
+    - build-terraform
   environment:
     name: $TF_STATE_NAME
     action: start

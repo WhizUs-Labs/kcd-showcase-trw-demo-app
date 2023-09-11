@@ -13,10 +13,11 @@ function Header(){
 
     const run_animations = useCallback(async () => {
         setRunIAC(true);
-        await new Promise(r => setTimeout(r, 10000));
+        await new Promise(r => setTimeout(r, 14000));
         setRunIAC(false);
+        await new Promise(r => setTimeout(r, 1000));
         setRunCICD(true);
-        await new Promise(r => setTimeout(r, 3000));
+        await new Promise(r => setTimeout(r, 12000));
         setRunIAC(false);
         setRunCICD(false);
 
@@ -34,7 +35,7 @@ function Header(){
     return (
         <div className="shadow-xl flex flex-row w-screen" style={{height: '20vh'}}>
             <IAC active={runIAC} />
-            <GITOPS />
+            <GITOPS active={true} />
             <CICD active={runCICD} />
         </div>
     )

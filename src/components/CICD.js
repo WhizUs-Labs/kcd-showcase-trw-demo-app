@@ -2,14 +2,14 @@ import RevolvingCogs from "./animations/RevolvingCogs";
 import WritingCode from "./animations/WritingCode";
 import { useState,useCallback,useEffect } from "react";
 import classNames from "classnames";
-import NewAPP from "./animations/NewApp";
+import UpdateAPP from "./animations/UpdateApp";
 import VersionControl from "./animations/VersionControl";
 
 import { PiArrowBendRightUpBold,PiArrowBendUpRightBold, PiArrowRightBold} from 'react-icons/pi';
 
 
 function CICD({ active, className }){
-    const CICD_Classes = classNames('overflow-hidden flex flex-col justify-center h-full w-1/3 border border-black rounded',className);
+    const CICD_Classes = classNames('overflow-hidden flex flex-col justify-center h-full w-1/3 border border-black',className);
     const [writeCode,setWriteCode] = useState(false);
     const [revolveCogs,setRevolveCogs] = useState(false);
     const [blinkApp,setBlinkApp] = useState(false);
@@ -19,21 +19,21 @@ function CICD({ active, className }){
         console.log("starting animation")
         setWriteCode(true);
         await new Promise(r => setTimeout(r, 3000));
-        setWriteCode(false);
-        await new Promise(r => setTimeout(r, 100));
+
         setVersionControl(true)
         await new Promise(r => setTimeout(r, 1500));
-        setVersionControl(false)
-        await new Promise(r => setTimeout(r, 100));
+
+
         setRevolveCogs(true);
         await new Promise(r => setTimeout(r, 3000));
+
         setRevolveCogs(false);
-        await new Promise(r => setTimeout(r, 100));
         setBlinkApp(true)
         await new Promise(r => setTimeout(r, 3000));
         setRevolveCogs(false);
         setWriteCode(false);
         setBlinkApp(false);
+        setVersionControl(false);
     },[active]);
 
     useEffect(() => {
@@ -45,7 +45,7 @@ function CICD({ active, className }){
 
     return (
         <div className={CICD_Classes} >
-            <div className="py-4 w-full text-center">CI/CD</div>
+            <div className="py-4 w-full block text-center">CI/CD</div>
             <div className="flex justify-content grow">
                 <div className="relative w-[40rem] mx-auto">
                     <WritingCode active={writeCode} color='border-[#00C6CF] bg-[#00C6CF]' className="absolute bottom-0 left-0 scale-75" />
@@ -59,7 +59,7 @@ function CICD({ active, className }){
                     
                     <PiArrowRightBold className="absolute left-[21rem] bottom-28 scale-150" />
 
-                    <NewAPP active={blinkApp} className="absolute  left-[20rem] bottom-0" />
+                    <UpdateAPP active={blinkApp} className="absolute  left-[20rem] bottom-0" />
                 </div>
             </div>
         </div>

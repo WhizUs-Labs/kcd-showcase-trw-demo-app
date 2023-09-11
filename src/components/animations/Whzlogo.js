@@ -9,10 +9,14 @@ function Whzlogo({ active,display, className }){
     const logo = useRef();
     const text = useRef();
     let containerclass = classNames('',className)
-    let classes1 = 'static flyin';
-    let classes2 = 'static flyin2';
+    let classes1 = '';
+    let classes2 = '';
     if (active === true){
-        classes1 = classNames(classes1,'');
+        classes1 = classNames(classes1,'flyin');
+        classes2 = classNames(classes2,'flyin2');
+    } else {
+        classes1 = classNames(classes1,'hidden');
+        classes2 = classNames(classes2,'hidden');
     }
     return(
         <div className={containerclass}>

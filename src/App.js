@@ -7,7 +7,6 @@ function App() {
     <div className="relative">
       <Header />
       <LandingPage />
-      <Footer />
     </div>
   );
 }

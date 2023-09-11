@@ -1,0 +1,52 @@
+
+.clusterbuild-animaiton {
+    animation-name: clusterbuild-animaiton;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+
+    border: solid;
+    opacity: 0.25;
+}
+
+.clusterimage-animaiton {
+    animation-name: clusterimage-animaiton;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes clusterbuild-animaiton {
+    0% { 
+      border-color: #00C6CF;
+      border: none;
+      opacity: 0.25;
+    }
+    50% {
+        border-color: #00C6CF;
+        border-style: dashed;
+        opacity: 0.75;
+
+      }
+    100% {
+      border-color: #00C6CF;
+        border-style: solid;
+        opacity: 1;
+    }
+ }
+
+
+@keyframes clusterimage-animaiton {
+    0% { 
+      opacity: 0;
+    }
+    50% {
+        opacity: 0;
+      }
+    100% {
+        opacity: 1;
+    }
+ }

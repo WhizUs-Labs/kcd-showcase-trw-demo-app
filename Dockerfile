@@ -8,9 +8,9 @@ RUN  npm install
 
 COPY . .
 
-CMD ['npm','run','start']
+EXPOSE 3000
 
-
+CMD ["npm","run","start"]
 
 #FROM nginx:mainline-alpine3.18-slim
 

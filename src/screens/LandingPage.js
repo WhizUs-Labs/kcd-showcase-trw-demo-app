@@ -7,7 +7,7 @@ function LandingPage(){
 
     const run_animation = useCallback(async () => {
         setShowAnimation(true);
-        await new Promise(r => setTimeout(r, 30000));
+        await new Promise(r => setTimeout(r, 10000));
         setShowAnimation(false);
     },[]);
 
@@ -16,15 +16,15 @@ function LandingPage(){
         const interval = setInterval(() => {
             console.log("starting Whzanim");
             run_animation();
-          }, 35000);
+          }, 60000);
         return () => clearInterval(interval); 
     }
     ,[]);
 
     return (
         <div className="flex justify-center pt-8 w-screen" style={{height: '80vh'}} >
-            <Whzlogo active={showAnimation} />
-            {/*<h1 className="text-6xl">Hello {`${process.env.REACT_APP_TEST}`}</h1>*/}
+            <Whzlogo active={showAnimation} className={`${showAnimation?"block":"hidden"}`} />
+            <h1 className={`text-6xl ${showAnimation?"hidden":"block"}`} >Parameterized Content: {`${process.env.REACT_APP_TEST}`}</h1>
         </div>
     )
 }

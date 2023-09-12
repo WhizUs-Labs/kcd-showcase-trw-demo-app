@@ -19,7 +19,7 @@ function GITOPS({ active, className }){
     
 
     const GITOPS_animation = useCallback(async () => {
-        console.log("starting animation")
+        // console.log("starting animation")
         setshowVSC(true);
         await new Promise(r => setTimeout(r, 3000));
         setReadAnimation(true);
@@ -31,6 +31,7 @@ function GITOPS({ active, className }){
         setshowVSC(false);
         setReadAnimation(false);
         setShowExclam(false);
+        setCreateApp(false);
     },[active]);
 
     useEffect(() => {

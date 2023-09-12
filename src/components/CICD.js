@@ -16,7 +16,7 @@ function CICD({ active, className }){
     const [versionControl,setVersionControl] = useState(false);
 
     const CICD_animation = useCallback(async () => {
-        console.log("starting animation")
+        // console.log("starting animation")
         setWriteCode(true);
         await new Promise(r => setTimeout(r, 3000));
 

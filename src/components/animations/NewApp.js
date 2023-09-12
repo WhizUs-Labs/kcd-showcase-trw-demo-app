@@ -2,6 +2,8 @@ import kubernetes from '../../resources/images/Kubernetes.png';
 import './NewApp.css';
 import classNames from "classnames";
 
+import { BsCloudyFill } from 'react-icons/bs';
+
 function UpdateAPP({ active,className }){
     let containerclass = classNames('w-40 h-40',className)
     let blinkClass = 'opacity-0'
@@ -16,6 +18,7 @@ function UpdateAPP({ active,className }){
     }
     return(
         <div className={containerclass}>
+            <BsCloudyFill className='absolute left-[13.5rem] top-[10.5rem] text-xl scale-[3] text-gray-300' />
             <img className='absolute h-8 w-8 top-[5.5rem] left-[2.5rem]' src={kubernetes} alt="CloudServer" />
             <div className='absolute top-28 left-16 w-40 h-16 border-2 border-black rounded'></div>
             <div className='tasks'>

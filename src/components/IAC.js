@@ -15,7 +15,7 @@ function IAC({ active, className }){
     const [buildCluster,setbuildCluster] = useState(false);
     
     const IaC_animation = useCallback(async () => {
-        console.log("starting animation")
+        // console.log("starting animation")
         setWriteCode(true);
         await new Promise(r => setTimeout(r, 3000));
         setbuildCluster(true)

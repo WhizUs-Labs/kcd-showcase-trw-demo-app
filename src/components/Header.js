@@ -12,22 +12,28 @@ function Header(){
     
 
     const run_animations = useCallback(async () => {
+        //console.log("starting IAC");
         setRunIAC(true);
         await new Promise(r => setTimeout(r, 14000));
-        setRunIAC(false);
-        await new Promise(r => setTimeout(r, 1000));
+        //console.log("starting GitOps");
+        setRunGitOps(true);
+        await new Promise(r => setTimeout(r, 14000));
+        //console.log("starting CICD");
         setRunCICD(true);
         await new Promise(r => setTimeout(r, 12000));
+        //console.log("stopping Animations");
         setRunIAC(false);
         setRunCICD(false);
+        setRunGitOps(false);
 
     },[active]);
 
     useEffect(() => {
+        run_animations();
         const interval = setInterval(() => {
             console.log("starting all animations");
             run_animations();
-          }, 20000);
+          }, 40000);
         return () => clearInterval(interval); 
     }
     ,[]);
@@ -35,7 +41,7 @@ function Header(){
     return (
         <div className="shadow-xl flex flex-row w-screen" style={{height: '20vh'}}>
             <IAC active={runIAC} />
-            <GITOPS active={true} />
+            <GITOPS active={runGitOps} />
             <CICD active={runCICD} />
         </div>
     )

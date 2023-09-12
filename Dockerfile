@@ -8,13 +8,13 @@ RUN  npm install
 
 COPY . .
 
-RUN  npm run build 
+CMD ['npm','run','start']
 
 
 
-FROM nginx:mainline-alpine3.18-slim
+#FROM nginx:mainline-alpine3.18-slim
 
-COPY --from=builder /app/build  /usr/share/nginx/html/
+#COPY --from=builder /app/build  /usr/share/nginx/html/
 
 #RUN addgroup -S nginx && adduser -S nginx -G nginx
 #USER nginx

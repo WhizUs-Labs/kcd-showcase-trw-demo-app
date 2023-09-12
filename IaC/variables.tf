@@ -15,11 +15,6 @@ variable "zone" {
   type    = string
   default = "at-vie-2"
 }
-variable "cicd" {
-  description = "Will be set to true if run from a CI/CD pipeline"
-  type        = bool
-  default     = false
-}
 variable "gitlab_pat" {
   type      = string
   sensitive = true

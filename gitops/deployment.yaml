@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kcd-demo-app
+  labels:
+    app: kcd-demo-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kcd-demo-app
+  template:
+    metadata:
+      labels:
+        app: kcd-demo-app
+    spec:
+      containers:
+      - name: kcd-demo-app
+        image: registry.gitlab.com/whizus/poc/kcd-platform-prototype/kcd_demo_app:e0f32a43
+        ports:
+        - containerPort: 3000
+      imagePullSecrets:
+      - name: regcred

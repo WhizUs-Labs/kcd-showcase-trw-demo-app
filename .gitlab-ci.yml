@@ -81,3 +81,14 @@ terraform-apply:
     name: $TF_STATE_NAME
     action: start
   allow_failure: true
+
+#terraform destroy
+terraform-destroy:
+  extends: .terraform:destroy
+  dependencies:
+    - terraform-plan
+    - get-kubeconfig
+  environment:
+    name: $TF_STATE_NAME
+    action: stop
+  allow_failure: true

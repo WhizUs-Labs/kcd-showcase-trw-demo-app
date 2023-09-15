@@ -79,3 +79,17 @@ variable "kcd_demo_app_namespace" {
   description = "namespace of the demo app"
   default     = "kcd-demo"
 }
+
+
+# Sealed Secrets
+variable "sealed_secrets_key" {
+  description = "Base64 encoded key for sealed secrets"
+  type        = string
+  sensitive   = true
+}
+
+variable "sealed_secrets_cert" {
+  description = "Base64 encoded cert for sealed secrets"
+  type        = string
+  sensitive   = true
+}

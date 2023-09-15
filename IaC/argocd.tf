@@ -8,7 +8,7 @@ module "argocd" {
       path           = "gitops/clusters/default"
       name           = "root"
       targetRevision = "HEAD"
-      namespace      = "kcd-demo"
+      namespace      = var.kcd_demo_app_namespace
     }
   ]
 

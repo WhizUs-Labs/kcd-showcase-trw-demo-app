@@ -56,3 +56,26 @@ variable "kubeconfig_path" {
   type        = string
   default     = ".kube/kcd-demo.config.yaml"
 }
+
+# IMAGEPULLSECRET
+variable "imagepullsecret_user" {
+  type        = string
+  description = "imagepullsecret user"
+  sensitive   = true
+}
+variable "imagepullsecret_pass" {
+  type        = string
+  description = "imagepullsecret pass"
+  sensitive   = true
+}
+variable "imagepullsecret_email" {
+  type        = string
+  description = "imagepullsecret email"
+  sensitive   = true
+}
+
+variable "kcd_demo_app_namespace" {
+  type        = string
+  description = "namespace of the demo app"
+  default     = "kcd-demo"
+}

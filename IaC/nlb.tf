@@ -15,6 +15,29 @@ resource "exoscale_nlb" "nlb" {
   }
 }
 
+resource "exoscale_nlb_service" "sks_ingress_http" {
+
+  count = contains(keys(exoscale_sks_nodepool.nodepool), local.default_nodepool_name) ? 1 : 0
+
+  zone             = exoscale_nlb.nlb[0].zone
+  name             = "http"
+  description      = "Ingress over HTTP"
+  nlb_id           = exoscale_nlb.nlb[0].id
+  instance_pool_id = exoscale_sks_nodepool.nodepool[local.default_nodepool_name].instance_pool_id
+  protocol         = "tcp"
+  port             = 80
+  target_port      = 31080
+  strategy         = "round-robin"
+
+  healthcheck {
+    mode     = "tcp"
+    port     = 31080
+    interval = 5
+    timeout  = 3
+    retries  = 10
+  }
+}
+
 resource "exoscale_nlb_service" "sks_ingress_https" {
 
   count = contains(keys(exoscale_sks_nodepool.nodepool), local.default_nodepool_name) ? 1 : 0

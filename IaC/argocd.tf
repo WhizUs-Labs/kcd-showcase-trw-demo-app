@@ -6,7 +6,7 @@ module "argocd" {
     {
       repoUrl        = "https://gitlab.com/whizus/poc/kcd-platform-prototype/kcd_demo_app.git"
       path           = "gitops/clusters/default"
-      name           = "kcd-demo-app"
+      name           = "root"
       targetRevision = "HEAD"
       namespace      = "kcd-demo"
     }

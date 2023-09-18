@@ -1,6 +1,0 @@
-apiVersion: v2
-name: argocd-private-repo
-description: A Helm chart that generates secrets for the ArgoCD configuration
-type: application
-version: 0.1.0
-appVersion: 0.1.0

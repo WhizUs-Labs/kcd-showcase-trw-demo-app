@@ -1,6 +1,0 @@
-apiVersion: v2
-name: sealed-secrets-key
-description: A Helm chart that installs a sealed secret key pair
-type: application
-version: 0.1.0
-appVersion: 0.1.0

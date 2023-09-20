@@ -43,7 +43,7 @@ function GITOPS({ active, className }){
     
     return (
         <div className={GITOPS_Classes} >
-            <div className="w-full py-4 block text-center">GitOps</div>
+            <div className="w-full py-4 block text-center text-4xl">GitOps</div>
             <div className="flex justify-content grow">
                 <div className="relative inset-x-1/4">
                     <VersionControl active={showVSC} className="absolute bottom-16 left-0" color='border-[#00C6CF] bg-[#00C6CF]' />

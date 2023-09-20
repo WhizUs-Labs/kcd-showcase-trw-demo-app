@@ -8,9 +8,9 @@ import classNames from "classnames";
 function Whzlogo({ active,display, className }){
     const logo = useRef();
     const text = useRef();
-    let containerclass = classNames('',className)
-    let classes1 = '';
-    let classes2 = '';
+    let containerclass = classNames('flex flex-col',className)
+    let classes1 = 'w-[60vw]';
+    let classes2 = 'w-[60vw]';
     if (active === true){
         classes1 = classNames(classes1,'flyin');
         classes2 = classNames(classes2,'flyin2');

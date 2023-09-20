@@ -21,7 +21,6 @@ function IAC({ active, className }){
         setbuildCluster(true)
         await new Promise(r => setTimeout(r, 5000));
         setshowVSC(true);
-        
         await new Promise(r => setTimeout(r, 6000));
         setshowVSC(false);
         setWriteCode(false);
@@ -37,7 +36,7 @@ function IAC({ active, className }){
 
     return (
         <div className={IAC_Classes} >
-            <div className="w-full py-4 block text-center">IaC</div>
+            <div className="w-full py-4 block text-center text-4xl">IaC</div>
             <div className="flex justify-content grow">
                 <div className="relative inset-x-1/4">
                         <VersionControl active={showVSC} color='border-[#00C6CF] bg-[#00C6CF]' className={`absolute ${showVSC ? "flex" : "hidden"} bottom-16 left-0 scale-1`} />

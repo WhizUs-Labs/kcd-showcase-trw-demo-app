@@ -16,7 +16,8 @@ function LandingPage(){
         const interval = setInterval(() => {
             console.log("starting Whzanim");
             run_animation();
-          }, 60000);
+          // }, 60000);
+        }, 10000);
         return () => clearInterval(interval); 
     }
     ,[]);

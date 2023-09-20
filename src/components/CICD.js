@@ -45,9 +45,10 @@ function CICD({ active, className }){
 
     return (
         <div className={CICD_Classes} >
-            <div className="py-4 w-full block text-center">CI/CD</div>
+            <div className="py-4 w-full block text-center text-4xl">CI/CD</div>
             <div className="flex justify-content grow">
                 <div className="relative w-[40rem] mx-auto">
+
                     <WritingCode active={writeCode} color='border-[#00C6CF] bg-[#00C6CF]' className="absolute bottom-0 left-0 scale-75" />
                     <PiArrowBendRightUpBold className="absolute left-[6.5rem] bottom-20 rotate-45 scale-150" />
 

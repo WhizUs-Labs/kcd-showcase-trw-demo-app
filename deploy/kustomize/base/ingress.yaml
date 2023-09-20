@@ -4,9 +4,12 @@ metadata:
   name: kcd-demo-app
   annotations:
     kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-staging"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   rules:
-  - http:
+  - host: kcd-demo-app.platform.kcd.whizus.net
+    http:
       paths:
       - path: /
         pathType: Prefix
@@ -15,3 +18,7 @@ spec:
             name: kcd-demo-app
             port:
               number: 80
+  tls:
+  - hosts:
+    - kcd-demo-app.platform.kcd.whizus.net
+    secretName: kcd-demo-app-tls

@@ -1,7 +1,7 @@
 .whztext
 {
   background-image: linear-gradient(
-    -225deg,
+    -45deg,
     #008FB5 0%,
     #009BBA 29%,
     #00ADC3 67%,
@@ -20,7 +20,7 @@
 .animatedtext
 {
   background-image: linear-gradient(
-    -225deg,
+    -45deg,
     #008FB5 0%,
     #009BBA 29%,
     #00ADC3 67%,
@@ -34,7 +34,7 @@
   text-fill-color: transparent;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: textclip 5s linear infinite;
+  /*animation: textclip 5s linear infinite;*/
 }
 
 .animatedtext2
@@ -54,8 +54,8 @@
   text-fill-color: transparent;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: textclip2 5s linear infinite;
-  animation-delay: 5s;
+  /*animation: textclip2 5s linear infinite;
+  animation-delay: 5s;*/
 }
 
 @keyframes textclip {
@@ -87,4 +87,47 @@
         background-position: 50% center;
       }
   }
+
+.KCDTheme {
+    background-image:linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0.7) 80%, rgba(255,255,255,0.7) 80%, rgba(255,255,255,0.1) 100%);
+    background-size:  auto 80vh;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+}
+
+.KCDTheme::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  inset: 0;
+  position: absolute;
+  background-image: url("../resources/images/kcd_cover.jpg");
+  background-size:  auto 80vh;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  animation: slide-in 2s ease-in 1;
+}
+
+.KCDTheme::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  inset: 0;
+  position: absolute;
+  background-image: url("../resources/images/kcd_cover.jpg");
+  background-size:  auto 80vh;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  animation: slide-in 2s ease-in 1;
+}
+
+@keyframes slide-in {
+  from { opacity: 0; }
+  to { opacity: 1;}
+}
 

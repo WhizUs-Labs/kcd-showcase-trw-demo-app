@@ -8,7 +8,7 @@ import classNames from "classnames";
 function Whzlogo({ active,display, className }){
     const logo = useRef();
     const text = useRef();
-    let containerclass = classNames('flex flex-col',className)
+    let containerclass = classNames('flex flex-col pt-8',className)
     let classes1 = 'w-[60vw]';
     let classes2 = 'w-[60vw]';
     if (active === true){

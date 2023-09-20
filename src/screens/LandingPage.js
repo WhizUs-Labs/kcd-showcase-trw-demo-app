@@ -16,8 +16,8 @@ function LandingPage(){
         const interval = setInterval(() => {
             console.log("starting Whzanim");
             run_animation();
-          // }, 60000);
-        }, 10000);
+        }, 60000);
+
         return () => clearInterval(interval); 
     }
     ,[]);
@@ -25,7 +25,11 @@ function LandingPage(){
     return (
         <div className="flex justify-center pt-8 w-screen" style={{height: '80vh'}} >
             <Whzlogo active={showAnimation} className={`${showAnimation?"block":"hidden"}`} />
-            <h1 className={`text-6xl ${showAnimation?"hidden":"block"}`} >Parameterized Content: {`${process.env.REACT_APP_TEST}`}</h1>
+            <div className={`flex flex-col text-center ${showAnimation?"hidden":"block"}`} >
+                <h1 className={`text-6xl uppercase my-24 whztext`} >KCD Vienna</h1>
+                <h1 className={`text-6xl uppercase my-24 animatedtext`} >Project: {`${process.env.REACT_APP_PROJECTNAME}`}</h1>
+                <h1 className={`text-6xl uppercase my-24 animatedtext2`} >Owner: {`${process.env.REACT_APP_PROJECTNAME}`}</h1>
+            </div>
         </div>
     )
 }

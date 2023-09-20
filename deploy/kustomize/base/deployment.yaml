@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: kcd-demo-app
-        image: registry.gitlab.com/whizus/poc/kcd-platform-prototype/kcd_demo_app:e0f32a43
+        image: registry.gitlab.com/whizus/poc/kcd-platform-prototype/kcd_demo_app:2107503f
         ports:
         - containerPort: 3000
       imagePullSecrets:

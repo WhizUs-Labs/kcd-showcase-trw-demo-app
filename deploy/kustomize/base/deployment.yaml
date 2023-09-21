@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: kcd-demo-app
-        image: registry.gitlab.com/whizus/poc/kcd-platform-prototype/kcd_demo_app:2107503f
+        image: registry.gitlab.com/whizus/poc/kcd-platform-prototype/kcd_demo_app:31929c72
         env:
         - name: REACT_APP_PROJECTNAME
           value: "kcd-demo-app"

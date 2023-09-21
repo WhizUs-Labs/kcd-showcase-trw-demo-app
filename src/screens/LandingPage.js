@@ -33,7 +33,7 @@ function LandingPage(){
                 <div><img className="w-[40vw] my-20 inline-block" src={whztext} alt="whztxt" /></div>
                 <h1 className={`text-6xl uppercase my-20 animatedtext`} >KCD Demo</h1>
                 <h1 className={`text-6xl uppercase my-20 animatedtext`} >Project: {`${process.env.REACT_APP_PROJECTNAME}`}</h1>
-                <h1 className={`text-6xl uppercase my-20 animatedtext2`} >Owner: {`${process.env.REACT_APP_PROJECTNAME}`}</h1>
+                <h1 className={`text-6xl uppercase my-20 animatedtext2`} >Owner: {`${process.env.REACT_APP_PROJECTOWNER}`}</h1>
             </div>
         </div>
     )

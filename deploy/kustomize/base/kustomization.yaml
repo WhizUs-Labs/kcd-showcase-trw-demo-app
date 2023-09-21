@@ -3,5 +3,4 @@ kind: Kustomization
 resources:
 - deployment.yaml
 - ingress.yaml
-- kcd-demo-app-imagepullsecret-sealed.json
 - service.yaml

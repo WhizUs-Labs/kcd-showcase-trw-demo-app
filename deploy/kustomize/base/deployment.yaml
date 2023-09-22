@@ -19,9 +19,9 @@ spec:
         image: registry.gitlab.com/whizus/poc/kcd-platform-prototype/${{ values.name }}:latest
         env:
         - name: REACT_APP_PROJECTNAME
-          value: "kcd-demo-app"
+          value: "${{ values.name }}"
         - name: REACT_APP_PROJECTOWNER
-          value: "team-rincewind"
+          value: "${{ values.owner }}"
         ports:
         - containerPort: 3000
       imagePullSecrets:

@@ -1,6 +1,5 @@
 variables:
   IMAGE_NAME: whizus/poc/kcd-platform-prototype/$CI_PROJECT_NAME
-  IMAGE_TAG: $CI_COMMIT_SHORT_SHA
 
 stages:
   - build
@@ -21,7 +20,7 @@ containerize:
     DOCKER_TLS_CERTDIR: "/certs"
   script:
     - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN
-    - docker build -t $CI_REGISTRY/$IMAGE_NAME:$IMAGE_TAG .
-    - docker tag $CI_REGISTRY/$IMAGE_NAME:$IMAGE_TAG $CI_REGISTRY/$IMAGE_NAME:latest
-    - docker push $CI_REGISTRY/$IMAGE_NAME:$IMAGE_TAG
+    - docker pull $CI_REGISTRY/$IMAGE_NAME:latest || true
+    - docker build --cache-from $CI_REGISTRY/$IMAGE_NAME:latest --tag $CI_REGISTRY/$IMAGE_NAME:$CI_COMMIT_SHORT_SHA --tag $CI_REGISTRY/$IMAGE_NAME:latest .
+    - docker push $CI_REGISTRY/$IMAGE_NAME:$CI_COMMIT_SHORT_SHA
     - docker push $CI_REGISTRY/$IMAGE_NAME:latest

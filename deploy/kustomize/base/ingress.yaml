@@ -8,7 +8,7 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   rules:
-  - host: __TEMPLATE_PROJECTNAME__.platform.kcd.whizus.net
+  - host: ${{ values.name }}.platform.kcd.whizus.net
     http:
       paths:
       - path: /
@@ -20,5 +20,5 @@ spec:
               number: 80
   tls:
   - hosts:
-    - __TEMPLATE_PROJECTNAME__.platform.kcd.whizus.net
+    - ${{ values.name }}.platform.kcd.whizus.net
     secretName: kcd-demo-app-tls

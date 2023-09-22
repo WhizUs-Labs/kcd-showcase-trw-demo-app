@@ -1,5 +1,5 @@
 variables:
-  IMAGE_NAME: whizus/poc/kcd-platform-prototype/$CI_PROJECT_NAME
+  IMAGE_NAME: $CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME
 
 stages:
   - build

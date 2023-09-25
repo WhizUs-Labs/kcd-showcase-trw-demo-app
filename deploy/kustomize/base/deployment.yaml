@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kcd-demo-app
+  name: ${{ values.name }}
   labels:
-    app: kcd-demo-app
+    app: ${{ values.name }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: kcd-demo-app
+      app: ${{ values.name }}
   template:
     metadata:
       labels:
-        app: kcd-demo-app
+        app: ${{ values.name }}
     spec:
       containers:
-      - name: kcd-demo-app
+      - name: ${{ values.name }}
         image: registry.gitlab.com/whizus/poc/kcd-platform-prototype/demo-apps/${{ values.name }}:latest
         env:
         - name: REACT_APP_PROJECTNAME

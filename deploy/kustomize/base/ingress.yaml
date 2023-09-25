@@ -21,4 +21,4 @@ spec:
   tls:
   - hosts:
     - ${{ values.name }}.platform.kcd.whizus.net
-    secretName: kcd-demo-app-tls
+    secretName: platform-kcd-whizus-net-tls

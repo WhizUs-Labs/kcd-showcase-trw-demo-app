@@ -2,14 +2,7 @@ variables:
   IMAGE_NAME: $CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME
 
 stages:
-  - build
   - containerize
-
-build:
-  stage: build
-  image: node:20-alpine3.17
-  script:
-    - npm install
 
 containerize:
   stage: containerize

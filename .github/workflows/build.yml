@@ -1,0 +1,18 @@
+name: Build Container
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  containerize:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v2
+      - name: lowercase image name
+        run: echo "IMAGE_NAME=${GITHUB_REPOSITORY,,}" >> ${GITHUB_ENV}
+      - name: build image
+        run: podman build -t $IMAGE_NAME:${{ github.sha }} -t $IMAGE_NAME:latest .
+      #TODO: push podman image
+

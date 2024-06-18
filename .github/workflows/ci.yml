@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - 'feat/TRW-336'
+      - 'main'
     tags:
       - '*'
   pull_request:

@@ -1,0 +1,35 @@
+name: ci
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'feat/TRW-336'
+    tags:
+      - '*'
+  pull_request:
+    branches:
+      - 'main'
+
+jobs:
+  build:
+    uses: ./.github/workflows/build.yml
+    with:
+      registry: ghcr.io
+      image-name: "${{ github.repository }}"
+    secrets: inherit
+    permissions:
+      contents: read
+      packages: write
+
+  notify:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Do something after the build
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          VERSION: ${{ github.ref_name }}
+        run: |
+          echo "version is ${{ env.VERSION }}"
+        continue-on-error: true

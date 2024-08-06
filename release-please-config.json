@@ -7,7 +7,7 @@
       "bump-patch-for-minor-pre-major": false,
       "draft": false,
       "prerelease": false,
-      "pull-request-header": "Release ${version}"
+      "pull-request-header": "Release"
     }
   },
   "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json"

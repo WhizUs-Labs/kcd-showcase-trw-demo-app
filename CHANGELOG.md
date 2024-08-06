@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/WhizUs-Labs/kcd-showcase-trw-demo-app/compare/kcd_demo-v1.0.0...kcd_demo-v1.1.0) (2024-08-06)
+
+
+### Features
+
+* add release-please workflow ([247253e](https://github.com/WhizUs-Labs/kcd-showcase-trw-demo-app/commit/247253e0ba0bfe4b96d386270fb569754485570c))
+
 ## 1.0.0 (2024-08-06)
 
 

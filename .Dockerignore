@@ -2,3 +2,4 @@
 IaC/
 gitops/
 node_modules/
+deploy/*

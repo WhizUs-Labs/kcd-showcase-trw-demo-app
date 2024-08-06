@@ -1,20 +1,19 @@
-FROM node:20-alpine as builder 
+FROM node:20-alpine AS builder 
 
 WORKDIR '/app'
 
-COPY package.json .
+COPY package*.json .
 
-RUN  npm install 
+RUN npm ci
 
 COPY . .
 
-EXPOSE 3000
+RUN npm run build
 
-CMD ["npm","run","start"]
+FROM nginx:mainline-alpine3.18-slim
+COPY nginx.conf /etc/nginx/nginx.conf
+ 
+COPY --from=builder /app/build /usr/share/nginx/html/
 
-#FROM nginx:mainline-alpine3.18-slim
-
-#COPY --from=builder /app/build  /usr/share/nginx/html/
-
-#RUN addgroup -S nginx && adduser -S nginx -G nginx
-#USER nginx
+EXPOSE 80/tcp
+CMD ["nginx", "-g", "daemon off;"]

@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.1.0](https://github.com/WhizUs-Labs/kcd-showcase-trw-demo-app/compare/kcd_demo-v1.0.0...kcd_demo-v1.1.0) (2024-09-06)
+
+
+### Features
+
+* add release-please workflow ([247253e](https://github.com/WhizUs-Labs/kcd-showcase-trw-demo-app/commit/247253e0ba0bfe4b96d386270fb569754485570c))
+
+
+### Bug Fixes
+
+* **TRW-410:** update packages with security vulnerabilities ([bfe0e67](https://github.com/WhizUs-Labs/kcd-showcase-trw-demo-app/commit/bfe0e67b8858dbd9bca551152a0f1c057e51fc7a))
+* use correct commit-sha; fix release interpolation ([4137532](https://github.com/WhizUs-Labs/kcd-showcase-trw-demo-app/commit/413753230f543af256116efbd139a823e71ade66))
+
 ## 1.0.0 (2024-08-06)
 
 

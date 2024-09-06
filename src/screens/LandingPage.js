@@ -3,6 +3,7 @@ import Whzlogo from '../components/animations/Whzlogo';
 import './LandingPage.css';
 import whztext from '../resources/images/WhizUsText.png'
 import whzlogo from '../resources/images/WhizUsLogo.png'
+import { Config } from '../utils/config';
 
 function LandingPage(){
     const [showAnimation,setShowAnimation] = useState(false);
@@ -32,8 +33,8 @@ function LandingPage(){
             <div className={`KCDTheme w-screen flex flex-col text-center justify-center ${showAnimation?"hidden":"flex"}`} >
                 <div><img className="w-[40vw] my-20 inline-block" src={whztext} alt="whztxt" /></div>
                 <h1 className={`text-6xl uppercase my-20 animatedtext`} >KCD Demo</h1>
-                <h1 className={`text-6xl uppercase my-20 animatedtext`} >Project: {`${process.env.REACT_APP_PROJECTNAME}`}</h1>
-                <h1 className={`text-6xl uppercase my-20 animatedtext2`} >Owner: {`${process.env.REACT_APP_PROJECTOWNER}`}</h1>
+                <h1 className={`text-6xl uppercase my-20 animatedtext`} >Project: {`${Config.REACT_APP_PROJECTNAME}`}</h1>
+                <h1 className={`text-6xl uppercase my-20 animatedtext2`} >Owner: {`${Config.REACT_APP_PROJECTOWNER}`}</h1>
             </div>
         </div>
     )

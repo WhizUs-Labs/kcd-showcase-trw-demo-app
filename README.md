@@ -10,3 +10,4 @@ In order to run the application for developing purposes, do following steps in t
 
 1. install node modules with `npm install`
 2. run the application with `npm start`. This should start the application on http://localhost:3000
+

@@ -7,7 +7,7 @@ import Config from './utils/config'
 const loadConfig = async () => {
   try {
       // Fetch config.json
-      const config_file = await fetch("/mnt/config.json");
+      const config_file = await fetch("/config.json");
       const config = await config_file.json();
 
       // map config in json to config class

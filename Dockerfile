@@ -1,37 +1,20 @@
-# Step 1: Build the Node.js application using a distroless image with a non-root user
-FROM node:20-alpine AS builder
+FROM node:20-alpine as builder 
 
-# Create a non-root user and switch to it
-RUN addgroup -S appgroup && adduser -S appuser -G appgroup
-USER appuser
+WORKDIR '/app'
 
-WORKDIR /app
+COPY package.json .
 
-COPY package*.json ./
+RUN  npm install 
 
-# Install dependencies separately to leverage Docker's caching mechanism
-RUN npm ci
+COPY . .
 
-COPY --chown=appuser:appgroup . .
+EXPOSE 3000
 
-RUN npm run build
+CMD ["npm","run","start"]
 
-# Step 2: Use the nginx-unprivileged image instead of the standard nginx image
-FROM nginxinc/nginx-unprivileged:stable-alpine
+#FROM nginx:mainline-alpine3.18-slim
 
-# Copy the built application from the builder stage to the nginx public directory
-COPY --from=builder /app/build /usr/share/nginx/html/
+#COPY --from=builder /app/build  /usr/share/nginx/html/
 
-# Add OpenContainer specifications
-LABEL org.opencontainers.image.title="KCD Showcase Application"
-LABEL org.opencontainers.image.description="This is a simple showcase application"
-LABEL org.opencontainers.image.url="https://whizus.com"
-LABEL org.opencontainers.image.source="https://github.com/WhizUs-Labs/kcd-showcase-trw-demo-app.git"
-LABEL org.opencontainers.image.version="0.1.0"
-LABEL org.opencontainers.image.vendor="WhizUs GmbH"
-LABEL org.opencontainers.image.licenses="MIT"
-
-# Expose the non-root default port for nginx-unprivileged
-EXPOSE 8080/tcp
-
-CMD ["nginx", "-g", "daemon off;"]
+#RUN addgroup -S nginx && adduser -S nginx -G nginx
+#USER nginx

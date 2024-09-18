@@ -3,6 +3,9 @@ kind: Component
 metadata:
   name: ${{ values.name | replace(" ", "-") | lower }}
   title: ${{ values.name }}
+  annotations:
+    argocd/app-name: showcase-app-${{ values.name }}
+    github.com/project-slug: WhizUs-Labs/kcd-showcase-app-${{ values.name }}
 spec:
   type: service
   owner: ${{ values.owner }}

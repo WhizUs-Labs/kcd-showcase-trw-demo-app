@@ -6,6 +6,8 @@ metadata:
   annotations:
     argocd/app-name: showcase-app-${{ values.name }}
     github.com/project-slug: WhizUs-Labs/kcd-showcase-app-${{ values.name }}
+    grafana/dashboard-selector: "title == 'Kubernetes / Compute Resources / Namespace (Workloads)' || tags @> 'Trivy'"
+    backstage.io/kubernetes-id: showcase-app-${{ values.name }}
 spec:
   type: service
   owner: ${{ values.owner }}

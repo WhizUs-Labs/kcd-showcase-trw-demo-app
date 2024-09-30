@@ -12,3 +12,4 @@ spec:
   type: service
   owner: ${{ values.owner }}
   lifecycle: experimental
+  subcomponentOf: component:kcd-showcase-service-cluster-template-gitops

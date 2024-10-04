@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.3.0](https://github.com/WhizUs-Labs/kcd-showcase-trw-demo-app/compare/kcd_demo-v1.2.0...kcd_demo-v1.3.0) (2024-10-04)
+
+
+### Features
+
+* add feature1 ([238d6d1](https://github.com/WhizUs-Labs/kcd-showcase-trw-demo-app/commit/238d6d13e87cb1383a26affe3fdc216ec686d299))
+* add feature2 ([5d23964](https://github.com/WhizUs-Labs/kcd-showcase-trw-demo-app/commit/5d239641ff0f6abf38598807d283d01bb9505f47))
+
+
+### Bug Fixes
+
+* do fix ([0536780](https://github.com/WhizUs-Labs/kcd-showcase-trw-demo-app/commit/0536780ce1cee6041f8fd0f8fad06ecfbba51b32))
+* fix feature1 ([18f5e05](https://github.com/WhizUs-Labs/kcd-showcase-trw-demo-app/commit/18f5e05be7f5ee242cd4aa33295df60275deddb7))
+* fix feature1 again ([1285135](https://github.com/WhizUs-Labs/kcd-showcase-trw-demo-app/commit/12851350e140502491bbbfbcd3164583111b0b74))
+* fix feature2 ([cefe8d8](https://github.com/WhizUs-Labs/kcd-showcase-trw-demo-app/commit/cefe8d8e0a79a6614acfa9649d2f9e083e0f2d72))
+
 ## [1.2.0](https://github.com/WhizUs-Labs/kcd-showcase-trw-demo-app/compare/kcd_demo-v1.1.0...kcd_demo-v1.2.0) (2024-09-30)
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/WhizUs-Labs/kcd-showcase-trw-demo-app/compare/kcd_demo-v1.1.0...kcd_demo-v1.2.0) (2024-09-30)
+
+
+### Features
+
+* add more templating to catalog info ([#18](https://github.com/WhizUs-Labs/kcd-showcase-trw-demo-app/issues/18)) ([d01af38](https://github.com/WhizUs-Labs/kcd-showcase-trw-demo-app/commit/d01af3832869f05ad5423ad26a4d60f89e588b2b))
+
 ## [1.1.0](https://github.com/WhizUs-Labs/kcd-showcase-trw-demo-app/compare/kcd_demo-v1.0.0...kcd_demo-v1.1.0) (2024-09-06)
 
 
